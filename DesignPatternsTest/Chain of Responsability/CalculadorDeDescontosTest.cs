@@ -13,7 +13,7 @@ namespace DesignPatternsTest.Chain_of_Responsability
 
             Orcamento orcamento = new Orcamento(500.0);
             orcamento.AdicionaItem(new Item("CANETA", 250.0));
-            orcamento.AdicionaItem(new Item("LAPIS", 250.0));
+            orcamento.AdicionaItem(new Item("BORRACHA", 250.0));
 
             double desconto = calculador.Calcular(orcamento);
 
@@ -50,6 +50,20 @@ namespace DesignPatternsTest.Chain_of_Responsability
             double desconto = calculador.Calcular(orcamento);
 
             Assert.AreEqual(orcamento.Valor * 0.1, desconto, "Deve ser realizado um desconto de (10%) para esse orçamento.");
+        }
+
+        [TestMethod]
+        public void Calculo_Desconto_Venda_Casada_Test()
+        {
+            CalculadorDeDescontos calculador = new CalculadorDeDescontos();
+
+            Orcamento orcamento = new Orcamento(200.0);
+            orcamento.AdicionaItem(new Item("CANETA", 100.0));
+            orcamento.AdicionaItem(new Item("LAPIS", 100.0));
+
+            double desconto = calculador.Calcular(orcamento);
+
+            Assert.AreEqual(orcamento.Valor * 0.05, desconto, "Deve ser realizado um desconto de (5%) para esse orçamento.");
         }
     }
 }
