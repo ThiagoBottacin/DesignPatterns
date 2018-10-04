@@ -4,6 +4,6 @@
     {
         IDesconto Proximo { get; set; }
 
-        double Desconta(Orcamento orcamento);
+        double Descontar(Orcamento orcamento);
     }
 }

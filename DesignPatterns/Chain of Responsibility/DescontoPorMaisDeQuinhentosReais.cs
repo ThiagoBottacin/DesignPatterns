@@ -4,7 +4,7 @@
     {
         public IDesconto Proximo { get; set; }
 
-        public double Desconta(Orcamento orcamento)
+        public double Descontar(Orcamento orcamento)
         {
             if (orcamento.Valor > 500)
             {
@@ -12,7 +12,7 @@
             }
             else
             {
-                return Proximo.Desconta(orcamento);
+                return Proximo.Descontar(orcamento);
             }
         }
     }

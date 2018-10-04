@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Strategy;
+﻿using DesignPatterns.Chain_of_Responsibility;
 using System;
 
 namespace DesignPatterns
@@ -7,21 +7,16 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            // Investimentos
-            Arrojado investimentoArrojado = new Arrojado();
-            Moderado investimentoModerado = new Moderado();
-            Conservador investimentoConservador = new Conservador();
+            CalculadorDeDescontos calculador = new CalculadorDeDescontos();
 
-            // Conta Bancária
-            ContaBancaria conta = new ContaBancaria(100.0);
+            Orcamento orcamento = new Orcamento(200.0);
+            orcamento.AdicionaItem(new Item("CANETA", 100.0));
+            orcamento.AdicionaItem(new Item("LAPIS", 100.0));
 
-            // Realizador de Investimentos
-            RealizadorDeInvestimentos realizadorInvestimentos = new RealizadorDeInvestimentos();
+            double desconto = calculador.Calcular(orcamento);
 
-            // Realiza Investimentos
-            realizadorInvestimentos.RealizarInvestimento(conta, investimentoConservador);
-            realizadorInvestimentos.RealizarInvestimento(conta, investimentoModerado);
-            realizadorInvestimentos.RealizarInvestimento(conta, investimentoArrojado);
+            Console.WriteLine(desconto);
+            Console.ReadKey();
         }
     }
 }
