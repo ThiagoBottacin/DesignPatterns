@@ -1,13 +1,24 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using System.Xml;
 using DesignPatterns.Strategy;
 
 namespace DesignPatterns.Chain_of_Responsibility.Requisicao_Web
 {
-    public class FormatoXml : IFormato
+    class FormatoXml : IFormato
     {
-        public IFormato Proximo { get; set; }
+        public IFormato Proximo { get; private set; }
+
+        public FormatoXml(IFormato proximo)
+        {
+            Proximo = proximo;
+        }
+
+        public FormatoXml()
+        {
+            Proximo = null;
+        }
 
         public string Formatar(Requisicao requisicao, ContaBancaria conta)
         {
@@ -38,7 +49,7 @@ namespace DesignPatterns.Chain_of_Responsibility.Requisicao_Web
                 }
             }
 
-            return Proximo.Formatar(requisicao, conta);
+            return Proximo?.Formatar(requisicao, conta) ?? throw new Exception("Formato de resposta não encontrado");
         }
     }
 }
