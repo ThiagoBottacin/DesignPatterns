@@ -18,7 +18,7 @@ namespace DesignPatternsTest.Strategy
                 Conservador investimentoConservador = new Conservador();
 
                 // Conta Bancária
-                ContaBancaria conta = new ContaBancaria(100.0);
+                ContaBancaria conta = new ContaBancaria("Thiago Bottacin", 100.0);
 
                 // Realizador de Investimentos
                 RealizadorDeInvestimentos realizadorInvestimentos = new RealizadorDeInvestimentos();
