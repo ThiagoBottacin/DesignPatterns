@@ -2,11 +2,18 @@
 {
     public class ContaBancaria
     {
-        public double Saldo { get; set; }
+        public string NomeTitular { get; private set; }
+        public double Saldo { get; private set; }
 
-        public ContaBancaria(double saldoInicial)
+        public ContaBancaria(string nomeTitular, double saldoInicial)
         {
+            NomeTitular = nomeTitular;
             Saldo = saldoInicial;
+        }
+
+        public void Depositar(double valor)
+        {
+            Saldo += valor;
         }
     }
 }
