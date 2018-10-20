@@ -16,8 +16,8 @@ namespace DesignPatterns.Strategy
             var rendimentoLiquido = rendimentoBruto * 0.75;
             var valorImposto = rendimentoBruto - rendimentoLiquido;
 
-            // Credita rendimento do investimento com descontos na conta bancária
-            conta.Saldo += rendimentoLiquido;
+            // Deposita rendimento do investimento com descontos na conta bancária
+            conta.Depositar(rendimentoLiquido);
 
             // Exibe resultados
             Console.WriteLine($"--- Valor investido [{investimento.GetType().Name}]:\tR${valorInvestido}");
