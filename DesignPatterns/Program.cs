@@ -7,6 +7,13 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
+            CalcularDescontos();
+
+
+        }
+
+        private static void CalcularDescontos()
+        {
             CalculadorDeDescontos calculador = new CalculadorDeDescontos();
 
             Orcamento orcamento = new Orcamento(200.0);
