@@ -18,15 +18,18 @@ namespace DesignPatterns
         {
             IImposto ikcv = new IKCV();
             IImposto icpp = new ICPP();
-            Orcamento orcamento = new Orcamento(600.0);
+            IImposto ihit = new IHIT();
+            Orcamento orcamento = new Orcamento(800.0);
 
             orcamento.AdicionaItem(new Item("CANETA", 400.0));
+            orcamento.AdicionaItem(new Item("LAPIS", 200.0));
             orcamento.AdicionaItem(new Item("LAPIS", 200.0));
 
             var valorIkcv = ikcv.Calcular(orcamento);
             var valorIcpp = icpp.Calcular(orcamento);
+            var valorIhit = ihit.Calcular(orcamento);
 
-            Console.WriteLine($"Imposto IKCV: {valorIkcv} / Imposto ICPP: {valorIcpp}");
+            Console.WriteLine($"Imposto IKCV: {valorIkcv} / Imposto ICPP: {valorIcpp} / Imposto IHIT: {valorIhit}");
             Console.ReadKey();
         }
 
