@@ -17,11 +17,11 @@ namespace DesignPatterns.Chain_of_Responsibility.Requisicao_Web
             Proximo = null;
         }
 
-        public string Formatar(Requisicao requisicao, ContaBancaria conta)
+        public string Formatar(Requisicao requisicao, Conta conta)
         {
             if (requisicao.Formato == Formato.CSV)
             {
-                return $"{conta.NomeTitular};{conta.Saldo:N};";
+                return $"{conta.Nome};{conta.Saldo:N};";
             }
 
             return Proximo?.Formatar(requisicao, conta) ?? throw new Exception("Formato de resposta não encontrado");

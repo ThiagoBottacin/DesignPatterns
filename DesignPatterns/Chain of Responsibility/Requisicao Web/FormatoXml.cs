@@ -20,7 +20,7 @@ namespace DesignPatterns.Chain_of_Responsibility.Requisicao_Web
             Proximo = null;
         }
 
-        public string Formatar(Requisicao requisicao, ContaBancaria conta)
+        public string Formatar(Requisicao requisicao, Conta conta)
         {
             if (requisicao.Formato == Formato.XML)
             {
@@ -38,7 +38,7 @@ namespace DesignPatterns.Chain_of_Responsibility.Requisicao_Web
                         writer.WriteStartDocument();
 
                         writer.WriteStartElement("Conta");
-                        writer.WriteElementString("NomeTitular", conta.NomeTitular);
+                        writer.WriteElementString("NomeTitular", conta.Nome);
                         writer.WriteElementString("Saldo", conta.Saldo.ToString("N"));
                         writer.WriteEndElement();
 

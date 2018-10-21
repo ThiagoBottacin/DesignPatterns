@@ -9,13 +9,13 @@ namespace DesignPatternsTest.Chain_of_Responsability.Requisicao_Web
     {
         private ConversorRespostaRequisicao conversorResposta;
         private Requisicao requisicao;
-        private ContaBancaria conta;
+        private Conta conta;
 
         [TestInitialize]
         public void Initialize()
         {
             conversorResposta = new ConversorRespostaRequisicao();
-            conta = new ContaBancaria("Thiago Bottacin", 500.0);
+            conta = new Conta("Thiago Bottacin", 123, "123-6", 500.0);
         }
 
         [TestMethod]

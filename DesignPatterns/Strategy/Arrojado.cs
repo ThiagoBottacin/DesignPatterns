@@ -4,7 +4,7 @@ namespace DesignPatterns.Strategy
 {
     public class Arrojado : IInvestimento
     {
-        public double Investir(ContaBancaria conta)
+        public double Investir(Conta conta)
         {
             var probabilidadeInvestimento = new Random().Next(101);
             var multiplicadorInvestimento = 0.0;

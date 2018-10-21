@@ -6,6 +6,6 @@ namespace DesignPatterns.Chain_of_Responsibility.Requisicao_Web
     {
         //IFormato Proximo { get; set; }
 
-        string Formatar(Requisicao requisicao, ContaBancaria conta);
+        string Formatar(Requisicao requisicao, Conta conta);
     }
 }

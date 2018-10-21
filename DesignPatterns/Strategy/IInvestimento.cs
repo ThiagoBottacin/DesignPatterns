@@ -2,6 +2,6 @@
 {
     public interface IInvestimento
     {
-        double Investir(ContaBancaria conta);
+        double Investir(Conta conta);
     }
 }

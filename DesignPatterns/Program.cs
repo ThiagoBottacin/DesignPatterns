@@ -1,7 +1,9 @@
 ﻿using DesignPatterns.Chain_of_Responsibility;
 using DesignPatterns.Strategy;
 using DesignPatterns.Template_Method;
+using DesignPatterns.Template_Method.Relatorio;
 using System;
+using System.Collections.Generic;
 
 namespace DesignPatterns
 {
@@ -11,7 +13,27 @@ namespace DesignPatterns
         {
             CalularImpostoTemplateMethod();
 
-            //CalcularDescontos();
+            CalcularDescontos();
+
+            ImprimirRelatorios();
+        }
+
+        private static void ImprimirRelatorios()
+        {
+            IRelatorio relatorioSimples = new RelatorioSimples();
+            IRelatorio relatorioComplexo = new RelatorioComplexo();
+
+            IList<Conta> contas = new List<Conta>()
+            {
+                new Conta("Thiago", 123, "123-3", 100.0),
+                new Conta("Jose", 124, "123-3", 1000.0),
+                new Conta("Maria", 125, "123-3", 250.0)
+            };
+
+            relatorioSimples.Imprimir(contas);
+            relatorioComplexo.Imprimir(contas);
+
+            Console.ReadKey();
         }
 
         private static void CalularImpostoTemplateMethod()

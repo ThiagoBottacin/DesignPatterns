@@ -5,7 +5,7 @@ namespace DesignPatterns.Chain_of_Responsibility.Requisicao_Web
     class SemFormato : IFormato
     {
         public IFormato Proximo { get; set; }
-        public string Formatar(Requisicao requisicao, ContaBancaria conta)
+        public string Formatar(Requisicao requisicao, Conta conta)
         {
             return "Formato Inválido";
         }

@@ -4,7 +4,7 @@ namespace DesignPatterns.Chain_of_Responsibility.Requisicao_Web
 {
     public class ConversorRespostaRequisicao
     {
-        public string FormatarResposta(Requisicao requisicao, ContaBancaria conta)
+        public string FormatarResposta(Requisicao requisicao, Conta conta)
         {
             IFormato formato1 = new FormatoXml(new FormatoCsv(new FormatoPorcento()));
 

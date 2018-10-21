@@ -5,7 +5,7 @@ namespace DesignPatterns.Strategy
     public class RealizadorDeInvestimentos
     {
 
-        public void RealizarInvestimento(ContaBancaria conta, IInvestimento investimento)
+        public void RealizarInvestimento(Conta conta, IInvestimento investimento)
         {
             var valorInvestido = conta.Saldo;
 
