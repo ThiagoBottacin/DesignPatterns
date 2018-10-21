@@ -1,4 +1,6 @@
 ﻿using DesignPatterns.Chain_of_Responsibility;
+using DesignPatterns.Strategy;
+using DesignPatterns.Template_Method;
 using System;
 
 namespace DesignPatterns
@@ -7,9 +9,25 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            CalcularDescontos();
+            CalularImpostoTemplateMethod();
 
+            //CalcularDescontos();
+        }
 
+        private static void CalularImpostoTemplateMethod()
+        {
+            IImposto ikcv = new IKCV();
+            IImposto icpp = new ICPP();
+            Orcamento orcamento = new Orcamento(600.0);
+
+            orcamento.AdicionaItem(new Item("CANETA", 400.0));
+            orcamento.AdicionaItem(new Item("LAPIS", 200.0));
+
+            var valorIkcv = ikcv.Calcular(orcamento);
+            var valorIcpp = icpp.Calcular(orcamento);
+
+            Console.WriteLine($"Imposto IKCV: {valorIkcv} / Imposto ICPP: {valorIcpp}");
+            Console.ReadKey();
         }
 
         private static void CalcularDescontos()
