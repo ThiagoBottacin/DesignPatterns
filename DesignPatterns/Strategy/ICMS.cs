@@ -1,12 +1,16 @@
 ﻿using DesignPatterns.Chain_of_Responsibility;
+using DesignPatterns.Decorator;
 
 namespace DesignPatterns.Strategy
 {
-    public class ICMS : IImposto
+    public class ICMS : Imposto
     {
-        public double Calcular(Orcamento orcamento)
+        public ICMS() : base() { }
+        public ICMS(Imposto outroImposto) : base(outroImposto) { }
+
+        public override double Calcular(Orcamento orcamento)
         {
-            return (orcamento.Valor * 0.05) + 50.0;
+            return (orcamento.Valor * 0.05) + 50.0 + CalculoDoOutroImposto(orcamento);
         }
     }
 }

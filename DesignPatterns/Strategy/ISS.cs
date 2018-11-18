@@ -1,14 +1,16 @@
 ﻿using DesignPatterns.Chain_of_Responsibility;
-using System.Collections.Generic;
-using System.Text;
+using DesignPatterns.Decorator;
 
 namespace DesignPatterns.Strategy
 {
-    public class ISS : IImposto
+    public class ISS : Imposto
     {
-        public double Calcular(Orcamento orcamento)
+        public ISS() : base() { }
+        public ISS(Imposto outroImposto) : base(outroImposto) { }
+
+        public override double Calcular(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.06;
+            return orcamento.Valor * 0.06 + CalculoDoOutroImposto(orcamento);
         }
     }
 }

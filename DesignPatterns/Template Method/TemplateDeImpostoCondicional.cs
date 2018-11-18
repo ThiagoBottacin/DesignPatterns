@@ -1,15 +1,18 @@
 ﻿using DesignPatterns.Chain_of_Responsibility;
-using DesignPatterns.Strategy;
+using DesignPatterns.Decorator;
 
 namespace DesignPatterns.Template_Method
 {
-    public abstract class TemplateDeImpostoCondicional : IImposto
+    public abstract class TemplateDeImpostoCondicional : Imposto
     {
-        public double Calcular(Orcamento orcamento)
+        public TemplateDeImpostoCondicional() : base() { }
+        public TemplateDeImpostoCondicional(Imposto outroImposto) : base(outroImposto) { }
+
+        public override double Calcular(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento))
             {
-                return MaximaTaxacao(orcamento);
+                return MaximaTaxacao(orcamento) + CalculoDoOutroImposto(orcamento);
             }
 
             return MinimaTaxacao(orcamento);
